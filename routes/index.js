@@ -60,12 +60,16 @@ exports.create = function *() {
   var input = yield parse(this);
   console.log(input);
   var d = new Date();
-  yield todos.insert({
-    name: input.name,
-    description: input.description,
-    created_on: d,
-    updated_on: d
-  });
+  
+  var todo = new todos();
+  
+  todo.name = input.name;
+  todo.description = input.description;
+  todo.created_on = d;
+  todo.updated_on = d;
+  
+  yield todo.save();
+  
   this.redirect('/');
 };
 

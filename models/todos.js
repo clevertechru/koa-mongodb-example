@@ -1,5 +1,14 @@
-var db = require('../lib/db')
-  , wrap = require('co-monk')
-  ;
+var mongoose = require('../lib/db');
 
-module.exports = wrap(db.get('todos'));
+// Prepare schema
+var schema = new mongoose.Schema(
+    {
+        name:           String,
+        description:    String
+    } );
+
+// Indexes (if any)
+//schema.index( { name: 1 } );
+
+// Return the model
+module.exports = mongoose.model( 'tests', schema );

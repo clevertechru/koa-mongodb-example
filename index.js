@@ -4,13 +4,12 @@ var http     = require('http')
   , route    = require('koa-route')
   , routes   = require('./routes')
   , serve    = require('koa-static')
-  , stylus   = require('koa-stylus')
-  ;
+  , stylus   = require('koa-stylus');
 
 // Create koa app
 var app = koa();
 
-// middleware
+// Koa middleware
 app.use(logger());
 app.use(stylus('./public'));
 app.use(serve('./public'));
@@ -25,5 +24,7 @@ app.use(route.post('/todo/create', routes.create));
 app.use(route.post('/todo/update', routes.update));
 
 // Create HTTP Server
-http.createServer(app.callback()).listen(3000);
+app.listen(3000);
+
+// Log port
 console.log('Server listening on port 3000');
