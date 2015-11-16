@@ -1,18 +1,20 @@
-var http     = require('http')
-  , koa      = require('koa')
-  , logger   = require('koa-logger')
-  , route    = require('koa-route')
-  , routes   = require('./routes')
-  , serve    = require('koa-static')
-  , stylus   = require('koa-stylus');
+var http        = require('http')
+  , koa         = require('koa')
+  , logger      = require('koa-logger')
+  , route       = require('koa-route')
+  , serve       = require('koa-static')
+  , stylus      = require('koa-stylus')
+  , routes      = require('./api/routes')
+  , bodyParser  = require('koa-bodyparser');
 
 // Create koa app
 var app = koa();
 
 // Koa middleware
 app.use(logger());
-app.use(stylus('./public'));
+app.use(bodyParser());
 app.use(serve('./public'));
+app.use(stylus('./public'));
 
 // Route middleware
 app.use(route.get('/', routes.list));
