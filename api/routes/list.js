@@ -6,7 +6,14 @@ var render = require('../lib/views');
 
 module.exports = function *()
 {
-  var results = yield todos.find({});
-  console.log(results);
-  this.body = yield render('index', {todos: results});
+  try {
+    var results = yield todos.find({});
+    console.log(results);
+    
+    this.body = yield render('index', {todos: results});
+  }
+  catch( ex ) {
+    this.body = ex;    
+    this.status = 500;
+  }
 };

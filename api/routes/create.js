@@ -5,6 +5,7 @@ module.exports = function *() {
   var input = this.request.body;
   
   console.log(input);
+  
   var d = new Date();
   
   var todo = new todos();
@@ -14,7 +15,14 @@ module.exports = function *() {
   todo.created_on = d;
   todo.updated_on = d;
   
-  yield todo.save();
+  try {
+    yield todo.save();
+  }
+  catch( ex ) {
+    this.status = 500;
+    this.body = ex;
+    return;
+  }
   
   this.redirect('/');
 };
