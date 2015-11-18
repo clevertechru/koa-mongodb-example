@@ -1,16 +1,15 @@
-// Require todos model
-var todos  = require('../models/todos');
+// Require todo model
+var Todo = require('../models/todo');
 
 module.exports = function *(id) {
-  try {
-    var result = yield todos.findById(id);
-    if (!result) {
-      this.throw(404, 'invalid todo id');
-    }
-    yield this.render('show', {todo: result});
+  // Find todo by ID
+  var result = yield Todo.findById(id);
+  
+  // No such todo?
+  if (!result) {
+    this.throw(404, 'Invalid todo ID');
   }
-  catch( ex ) {
-    this.body = ex;
-    this.status = 500;
-  }
+  
+  // Render in template
+  yield this.render('show', {todo: result});
 };

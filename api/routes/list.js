@@ -1,16 +1,10 @@
-// Require todos model
-var todos  = require('../models/todos');
+// Require todo model
+var Todo = require('../models/todo');
 
-module.exports = function *()
-{
-  try {
-    var results = yield todos.find({});
-    console.log(results);
-    
-    yield this.render('index', {todos: results});
-  }
-  catch( ex ) {
-    this.body = ex;    
-    this.status = 500;
-  }
+module.exports = function *() {
+  // Grab all todo items
+  var results = yield Todo.find({});
+  
+  // Return and embed in template
+  yield this.render('index', {todos: results});
 };

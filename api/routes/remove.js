@@ -1,13 +1,10 @@
-// Require todos model
-var todos  = require('../models/todos');
+// Require todo model
+var Todo = require('../models/todo');
 
 module.exports = function *(id) {
-  try {
-    yield todos.remove({"_id": id});
-    this.redirect('/');
-  }
-  catch( ex ) {
-    this.body = ex;
-    this.status = 500;
-  }
+  // Remove a todo by ID
+  yield Todo.remove({"_id": id});
+  
+  // Redirect to index
+  this.redirect('/');
 };

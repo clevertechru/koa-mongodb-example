@@ -7,28 +7,31 @@ var http        = require('http')
   , stylus      = require('koa-stylus')
   , bodyParser  = require('koa-bodyparser');
 
-// Routing  
-var router = require('./api/router')
+// Custom Koa middleware
+var router = require('./api/router');
+var error = require('./api/lib/error');
 
 // Create koa app
 var app = koa();
 
 // Koa middleware
+app.use(error());
 app.use(logger());
 app.use(bodyParser());
 app.use(serve('./public'));
 app.use(stylus('./public'));
 
 // Views middleware
-app.use(views('views', {
-  map: {html: 'swig'}
-}));
+app.use(views('views', {map:{html:'swig'}}));
 
-// Route definitions
+// Define routes
 router(app);
 
-// Create HTTP Server
-app.listen(3000);
+// Define configurable port
+var port = process.env.PORT || 3000;
+
+// Listen for connections
+app.listen(port);
 
 // Log port
-console.log('Server listening on port 3000');
+console.log('Server listening on port ' + port);

@@ -1,4 +1,4 @@
-// Get mongoose connection
+// Get mongoose object
 var db = require('../lib/db');
 
 // Prepare schema

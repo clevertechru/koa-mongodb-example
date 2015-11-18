@@ -4,7 +4,7 @@ var route = require('koa-route');
 // Route definitions
 module.exports = function router(app)
 {
-  // Set routes
+  // Set TODO routes
   app.use(route.get('/', require('./routes/list')));
   app.use(route.get('/todo/new', require('./routes/add')));
   app.use(route.get('/todo/:id', require('./routes/show')));

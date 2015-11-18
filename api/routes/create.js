@@ -1,28 +1,25 @@
-// Require todos model
-var todos  = require('../models/todos');
+// Require todo model
+var Todo = require('../models/todo');
 
 module.exports = function *() {
+  // Parse input from request body
   var input = this.request.body;
   
-  console.log(input);
+  // Get current date
+  var creationDate = new Date();
   
-  var d = new Date();
+  // Create new todo Mongoose model
+  var todo = new Todo();
   
-  var todo = new todos();
-  
+  // Set properties
   todo.name = input.name;
   todo.description = input.description;
-  todo.created_on = d;
-  todo.updated_on = d;
+  todo.created_on = creationDate;
+  todo.updated_on = creationDate;
   
-  try {
-    yield todo.save();
-  }
-  catch( ex ) {
-    this.status = 500;
-    this.body = ex;
-    return;
-  }
+  // Save in collection
+  yield todo.save();
   
+  // Redirect to index
   this.redirect('/');
 };
