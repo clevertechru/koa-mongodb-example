@@ -17,8 +17,6 @@
   "author": "Elad Nava (Originally by Philip Woods)",
   "license": "ISC",
   "dependencies": {
-    "co-body": "0.0.1",
-    "co-monk": "~1.0.0",
     "co-views": "^2.1.0",
     "koa": "^1.1.2",
     "koa-bodyparser": "^2.0.1",

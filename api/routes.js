@@ -1,5 +1,3 @@
-var parse  = require('co-body');
-
 // Route definitions
 module.exports = 
 {
