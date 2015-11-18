@@ -1,9 +1,6 @@
 // Require todos model
 var todos  = require('../models/todos');
 
-// Swig template engine
-var render = require('../lib/views');
-
 module.exports = function *(id) {
   try {
     var result = yield todos.findById(id);
@@ -11,7 +8,7 @@ module.exports = function *(id) {
     if (!result) {
       this.throw(404, 'invalid todo id');
     }
-    this.body = yield render('edit', {todo: result});
+    yield this.render('edit', {todo: result});
   }
   catch( ex ) {
     this.body = ex;

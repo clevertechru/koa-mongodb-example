@@ -17,13 +17,13 @@
   "author": "Elad Nava (Originally by Philip Woods)",
   "license": "ISC",
   "dependencies": {
-    "co-views": "^2.1.0",
     "koa": "^1.1.2",
     "koa-bodyparser": "^2.0.1",
     "koa-logger": "^1.3.0",
     "koa-route": "^2.4.2",
     "koa-static": "^1.5.2",
     "koa-stylus": "0.0.3",
+    "koa-views": "^3.1.0",
     "mongoose": "^4.2.6",
     "swig": "^1.4.2"
   }
