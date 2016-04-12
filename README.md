@@ -1,4 +1,4 @@
-## Koa MongoDB Example
+# Koa MongoDB Example
 
 This is a fork of [Elzair/koa-mongodb-example](https://github.com/Elzair/koa-mongodb-example), modified to use Mongoose instead of Monk as the ODM for interfacing with MongoDB.
 
@@ -6,14 +6,24 @@ This project shows you how to create a simple CRUD app using the [Koa](http://ko
 
 ## How to Use
 
-To run this example, first launch a local [MongoDB](https://www.mongodb.org/) instance.
+To run this example project, first clone it locally. 
 
-    mongod
+```
+git clone https://github.com/eladnava/koa-mongodb-example.git
+```
 
-Then run the following commands in the root directory of this project.
+Next, make sure you have [MongoDB](https://www.mongodb.org/) installed locally. Then, launch a local instance by typing the following command:
 
-    npm install
-    npm start
+```
+mongod
+```
+
+Then run the following commands in the root directory of this project to run the app:
+
+```
+npm install
+npm start
+```
 
 ## Special Thanks
 
