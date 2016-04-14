@@ -4,7 +4,7 @@ This is a fork of [Elzair/koa-mongodb-example](https://github.com/Elzair/koa-mon
 
 This project shows you how to create a simple CRUD app using the [Koa](http://koajs.com/) framework, the [Swig](http://paularmstrong.github.io/swig/) template engine, and the [Mongoose](https://github.com/Automattic/mongoose) MongoDB library.
 
-## How to Use
+## Usage
 
 To run this example project, first clone it locally. 
 
