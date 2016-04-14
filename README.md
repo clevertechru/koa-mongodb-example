@@ -1,4 +1,4 @@
-# Koa MongoDB Example
+# koa-mongodb-example
 
 This is a fork of [Elzair/koa-mongodb-example](https://github.com/Elzair/koa-mongodb-example), modified to use Mongoose instead of Monk as the ODM for interfacing with MongoDB.
 
